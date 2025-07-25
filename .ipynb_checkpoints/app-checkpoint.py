@@ -118,7 +118,7 @@ def calcular_impactos(kg_total, percentual):
 
 # === Container central para calculadora expandida ===
 with st.container():
-         st.markdown("""
+        st.markdown("""
 
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
