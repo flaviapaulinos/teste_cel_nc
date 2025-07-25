@@ -148,7 +148,7 @@ with st.container():
             impactos = calcular_impactos(kg_recicla, percentual_coleta_seletiva)
             # Imagem floresta
             st.image("imagem/faixa_1.PNG", use_container_width=True)
-            st.markdown("---")
+ 
             st.markdown("""
 
 
@@ -157,7 +157,7 @@ Os benefícios ambientais da reciclagem são imensos e alguns deles não têm co
 Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
 </div>
 """, unsafe_allow_html=True)
-            
+            st.markdown("---")
             st.subheader("🌱 Impacto positivo gerado pela sua reciclagem em um ano:")
             
             # Mostrar resultados em colunas para melhor visualização
@@ -173,7 +173,7 @@ Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em 
             impactos = calcular_impactos(kg_nao_recicla, percentual_coleta_seletiva)
             # Imagem floresta
             st.image("imagem/faixa_1.PNG", use_container_width=True)
-            st.markdown("---")
+
             st.markdown("""
 
 
@@ -183,6 +183,8 @@ Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em 
 </div>
 """, unsafe_allow_html=True)
             st.subheader("🚮 Impacto positivo que você está **deixando de gerar** em um ano:")
+
+            st.markdown("---")
             
             # Mostrar resultados em colunas
             cols = st.columns(2)
