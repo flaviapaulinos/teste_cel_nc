@@ -146,6 +146,7 @@ with st.container():
             st.warning("⚠️ Preencha apenas um dos lados")
         elif kg_recicla > 0:
             impactos = calcular_impactos(kg_recicla, percentual_coleta_seletiva)
+            st.subheader("🌱 Impacto positivo gerado pela sua reciclagem em um ano:")
             # Imagem floresta
             st.image("imagem/faixa_1.PNG", use_container_width=True)
  
@@ -153,12 +154,13 @@ with st.container():
 
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
-Os benefícios ambientais da reciclagem são imensos e alguns deles não têm como ser expressos em números, Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. 
-Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
+Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são muito maiores e não têm como ser expressos em números.
+
+Mas, alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
 </div>
 """, unsafe_allow_html=True)
-            st.markdown("---")
-            st.subheader("🌱 Impacto positivo gerado pela sua reciclagem em um ano:")
+            #st.markdown("---")
+            
             
             # Mostrar resultados em colunas para melhor visualização
             cols = st.columns(2)
@@ -178,8 +180,9 @@ Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em 
 
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
-Os benefícios ambientais da reciclagem são imensos e alguns deles não têm como ser expressos em números, Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. 
-Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
+Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são muito maiores e não têm como ser expressos em números.
+
+Mas, alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
 </div>
 """, unsafe_allow_html=True)
             st.subheader("🚮 Impacto positivo que você está **deixando de gerar** em um ano:")
