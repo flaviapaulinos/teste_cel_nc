@@ -121,12 +121,13 @@ with st.container():
         st.markdown("""
 
 
-<div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
+<div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
 Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números.
 
-Alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
+Alguns benefícios econômicos, sociais e ambientais podem ser expressos em números!
 </div>
 """, unsafe_allow_html=True)
+        st.markdown(" ")
         # Imagem floresta
         st.image("imagem/faixa_1.PNG", use_container_width=True)
         st.subheader("♻️ Impacto Ambiental da Sua Reciclagem")
@@ -172,7 +173,7 @@ Alguns benefícios econômicos, sociais e ambientais podem ser expressos em núm
             st.markdown("""
 
 
-<div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
+<div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
 
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 
