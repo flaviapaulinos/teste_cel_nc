@@ -10,20 +10,20 @@ def show_header(show_calculadora=True):
     if show_calculadora:
 
         with col2:
-            st.page_link("pages/Dashboard.py", label= "Análise Resíduos BH")
+            st.page_link("pages/Dashboard.py", label= "**Análise Resíduos BH**")
     
         with col4:
-            st.page_link("https://novocicloresiduos.com.br/", label="Sobre o Projeto")
+            st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
     
         # Imagem indicadora da calculadora
         st.image("imagem/calculadora_circulos.png", use_container_width=True)
 
     else:
         with col2:
-            st.page_link("app.py", label="Calculadora de impacto coleta seletiva")
+            st.page_link("app.py", label="**Calculadora de impacto coleta seletiva**")
     
         with col4:
-             st.page_link("pages/Dashboard.py", label= "Análise Resíduos de BH")
+             st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
 
 def show_footer():

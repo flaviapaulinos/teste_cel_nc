@@ -122,13 +122,13 @@ with st.container():
 
 
 <div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
-Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números. **Alguns benefícios econômicos, sociais e ambientais podem ser expressos em números!**
+Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números. <strong>Alguns benefícios econômicos, sociais e ambientais podem ser expressos em números!</strong>
 </div>
 """, unsafe_allow_html=True)
         st.markdown(" ")
         # Imagem floresta
         st.image("imagem/faixa_1.PNG", use_container_width=True)
-        st.subheader("♻️ Descubra Alguns Imactos da Sua Reciclagem")
+        st.subheader("♻️ Descubra Alguns Impactos da Sua Reciclagem")
         
         # Usando 2 colunas com mais espaço
         col1, col2 = st.columns(2)
