@@ -10,7 +10,7 @@ def show_header(show_calculadora=True):
     if show_calculadora:
 
         with col2:
-            st.page_link("https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmLTgyODgtMTE5Y2UwOTc2MjQ2IiwidCI6ImU5YTgyZWM3LTRhODYtNDNkZS1hYjJhLTcxOWQ2Njk1OWExYiJ9", label=" Análise dos Resíduos em BH")
+            st.page_link("pages/DashboardPowerBI.py", label= "Análise Resíduos de BH")
     
         with col4:
             st.page_link("https://novocicloresiduos.com.br/", label="Sobre o Projeto")
@@ -23,7 +23,7 @@ def show_header(show_calculadora=True):
             st.page_link("app.py", label=" Calculadora de impacto coleta seletiva")
     
         with col4:
-            st.page_link("https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmLTgyODgtMTE5Y2UwOTc2MjQ2IiwidCI6ImU5YTgyZWM3LTRhODYtNDNkZS1hYjJhLTcxOWQ2Njk1OWExYiJ9", label="Projeto")
+             st.page_link("pages/DashboardPowerBI.py", label= "Análise Resíduos de BH")
         
 
 def show_footer():
