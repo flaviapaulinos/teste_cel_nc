@@ -138,13 +138,26 @@ with st.container():
         # === Peso total (em kg por ano - 52 semanas) ===
         kg_recicla = (sacolas_recicla * peso_sacola_coleta_seletiva + sacos30_recicla * peso_saco_30l_seletiva) * 52.1786
         kg_nao_recicla = (sacolas_nao_recicla * peso_sacola_convencional + sacos30_nao_recicla * peso_saco_30l_convencional) * 52.1786
+
+    
         
         # === Validação e cálculo ===
         if kg_recicla > 0 and kg_nao_recicla > 0:
             st.warning("⚠️ Preencha apenas um dos lados")
         elif kg_recicla > 0:
             impactos = calcular_impactos(kg_recicla, percentual_coleta_seletiva)
+            # Imagem floresta
+            st.image("imagem/faixa_rio1.png", use_container_width=True)
             st.markdown("---")
+            st.markdown("""
+
+
+<div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
+Os benefícios ambientais da reciclagem são imensos e alguns deles não têm como ser expressos em números, Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. 
+Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
+</div>
+""", unsafe_allow_html=True)
+            
             st.subheader("🌱 Impacto positivo gerado pela sua reciclagem em um ano:")
             
             # Mostrar resultados em colunas para melhor visualização
@@ -158,7 +171,17 @@ with st.container():
                     
         elif kg_nao_recicla > 0:
             impactos = calcular_impactos(kg_nao_recicla, percentual_coleta_seletiva)
+            # Imagem floresta
+            st.image("imagem/faixa_rio1.png", use_container_width=True)
             st.markdown("---")
+            st.markdown("""
+
+
+<div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
+Os benefícios ambientais da reciclagem são imensos e alguns deles não têm como ser expressos em números, Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. 
+Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números: 
+</div>
+""", unsafe_allow_html=True)
             st.subheader("🚮 Impacto positivo que você está **deixando de gerar** em um ano:")
             
             # Mostrar resultados em colunas
@@ -174,10 +197,6 @@ st.markdown("""
 
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
-Os benefícios ambientais estão associados aos impactos sobre o meio ambiente devido ao consumo de energia, às emissões de 
-gases do efeito estufa (GEEs) e ao consumo de água e à perda de biodiversidade que a produção a partir da matéria-prima virgem exige. 
-
-Já os benefícios econômicos da reciclagem incluem primordialmente o consumo de recursos naturais e de energia evitados. 
 
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 
