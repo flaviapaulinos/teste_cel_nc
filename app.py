@@ -147,7 +147,7 @@ with st.container():
         elif kg_recicla > 0:
             impactos = calcular_impactos(kg_recicla, percentual_coleta_seletiva)
             # Imagem floresta
-            st.image("imagem/faixa_rio1.png", use_container_width=True)
+            st.image("imagem/faixa_1.PNG", use_container_width=True)
             st.markdown("---")
             st.markdown("""
 
@@ -172,7 +172,7 @@ Mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em 
         elif kg_nao_recicla > 0:
             impactos = calcular_impactos(kg_nao_recicla, percentual_coleta_seletiva)
             # Imagem floresta
-            st.image("imagem/faixa_rio1.png", use_container_width=True)
+            st.image("imagem/faixa_1.PNG", use_container_width=True)
             st.markdown("---")
             st.markdown("""
 
