@@ -173,7 +173,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
 
-
+<strong> Imagine o impacto, se todos os habitantes de Belo Horizonte destinassem corretamente seus resíduos recicláveis!</strong>
 
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 
