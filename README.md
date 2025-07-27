@@ -1,9 +1,12 @@
-title: Calculadora de Coleta Seletiva e Dashboard BH
+---
+title: Calculadora de Coleta Seletiva BH
 emoji: 🌱
 colorFrom: green
 colorTo: teal
 sdk: streamlit
+sdk_version: 1.32.2
 app_file: app.py
+pinned: false
 ---
 
 Este aplicativo traz:
