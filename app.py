@@ -6,8 +6,6 @@ st.set_page_config(layout="wide", page_title="Calculadora de Impacto Ambiental")
 from utils import show_header, show_footer
 
 
-
-
 st.markdown("""
     <style>
     @font-face {
