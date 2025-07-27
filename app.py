@@ -1,6 +1,8 @@
 import streamlit as st
 from utils import show_header, show_footer
 
+st.write(f"Streamlit version: {st.__version__}")
+st.write(f"Python version: {sys.version}")
 
 # Configuração de página com layout amplo
 st.set_page_config(layout="wide", page_title="Calculadora de Impacto Ambiental")
