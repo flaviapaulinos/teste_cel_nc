@@ -21,8 +21,8 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Mostra cabeçalho personalizado
-show_header()
+# No ambiente Render, use render_mode=True
+show_header(render_mode=True)
 
 # === Dados e coeficientes ===
 percentual_coleta_seletiva = {
@@ -209,4 +209,4 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 """, unsafe_allow_html=True)
 
 # === Rodapé ===
-show_footer()
+show_footer(render_mode=True)
