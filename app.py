@@ -122,7 +122,7 @@ with st.container():
 
 
 <div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
-Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números. <strong>Alguns benefícios econômicos, sociais e ambientais podem ser expressos em números!</strong>
+Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números; <strong> mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números.</strong>
 </div>
 """, unsafe_allow_html=True)
         st.markdown(" ")
@@ -137,13 +137,13 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
             st.markdown("**✅ Você recicla?**")
             st.markdown("Informe quantos **sacos e/ou sacolas você destina para a coleta seletiva** por semana:")
             sacolas_recicla = st.number_input("Sacolas de supermercado", min_value=0, step=1, key="sacolas_recicla")
-            sacos30_recicla = st.number_input("Sacos 30L", min_value=0, step=1, key="sacos30_recicla")
+            sacos30_recicla = st.number_input("Sacos 30 litros", min_value=0, step=1, key="sacos30_recicla")
         
         with col2:
             st.markdown("**🚫 Você ainda não recicla?**")
             st.markdown("Informe quantos **sacos e/ou sacolas você destina para a coleta de lixo por semana:**")
             sacolas_nao_recicla = st.number_input("Sacolas de supermercado com lixo convencional", min_value=0, step=1, key="sacolas_nao_recicla")
-            sacos30_nao_recicla = st.number_input("Sacos 30L com lixo convencional", min_value=0, step=1, key="sacos30_nao_recicla")
+            sacos30_nao_recicla = st.number_input("Sacos 30 litros com lixo convencional", min_value=0, step=1, key="sacos30_nao_recicla")
         
         # === Peso total (em kg por ano - 52 semanas) ===
         kg_recicla = (sacolas_recicla * peso_sacola_coleta_seletiva + sacos30_recicla * peso_saco_30l_seletiva) * 52.1786
@@ -173,6 +173,8 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
 
+
+
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 
 *Valores corrigidos pelo IPCA
@@ -198,7 +200,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 
 
 <div style='background-color:#f0f2f6; padding:15px; border-radius:10px; margin-top:20px;'>
-
+<strong> Imagine o impacto, se todos os habitantes de Belo Horizonte destinassem corretamente seus resíduos recicláveis!</strong>
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 
 *Valores corrigidos pelo IPCA
