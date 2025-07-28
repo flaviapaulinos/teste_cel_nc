@@ -3,7 +3,7 @@ import streamlit as st
 def show_header(show_calculadora=True, render_mode=False):
     # Barra superior
     if render_mode:
-        st.image("imagem/novo_ciclo_sup1.png")  # Sem use_container_width
+        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)  # Sem use_container_width
     else:
         st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
     
@@ -31,6 +31,6 @@ def show_header(show_calculadora=True, render_mode=False):
 def show_footer(render_mode=False):
     st.markdown("---")
     if render_mode:
-        st.image("imagem/logos.png")
+        st.image("imagem/logos.png", use_container_width=True)
     else:
         st.image("imagem/logos.png", use_container_width=True)
