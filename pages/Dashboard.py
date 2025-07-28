@@ -46,7 +46,7 @@ st.markdown("""
         
         /* Iframe do PowerBI ocupando toda a altura visível */
         .iframe-container {
-            height: calc(100vh - 130px); /* Considera altura do cabeçalho */
+            height: calc(100vh - 150px); /* Considera altura do cabeçalho */
             width: 100vw;
             padding: 0;
             margin: 0;
