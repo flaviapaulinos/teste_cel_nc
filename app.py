@@ -42,7 +42,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # No ambiente Render, use render_mode=True
-show_header(render_mode=True)
+show_header()
 
 # === Dados e coeficientes ===
 percentual_coleta_seletiva = {
@@ -229,4 +229,4 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 """, unsafe_allow_html=True)
 
 # === Rodapé ===
-show_footer(render_mode=True)
+show_footer()
