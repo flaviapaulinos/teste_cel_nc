@@ -174,7 +174,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
         
         # === Validação e cálculo ===
         if kg_recicla > 0 and kg_nao_recicla > 0:
-            st.warning("⚠️ Preencha apenas um dos lados")
+            st.warning("⚠️ Apenas uma opção por vez: '✅ Você recicla?' ou '🚫 Você ainda não recicla?' ")
         elif kg_recicla > 0:
             impactos = calcular_impactos(kg_recicla, percentual_coleta_seletiva)
             st.markdown("---")
