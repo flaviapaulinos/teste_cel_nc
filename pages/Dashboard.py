@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# === CSS para ocupar máximo espaço ===
+# === CSS CORRIGIDO ===
 st.markdown("""
     <style>
         /* Remover completamente a barra lateral */
@@ -17,54 +17,48 @@ st.markdown("""
             display: none !important;
         }
         
-        /* Remover espaçamentos padrão */
+        /* Espaçamento apenas no topo para o cabeçalho */
+        .stApp {
+            padding-top: 0 !important;
+        }
+        
+        /* Container principal com espaço para o cabeçalho */
         .block-container {
             padding: 0 !important;
             max-width: 100vw !important;
         }
         
-        /* Remover margens do cabeçalho */
+        /* Cabeçalho com altura automática */
         header {
             max-width: 100vw !important;
-            left: 0 !important;
-            right: 0 !important;
             padding: 0 !important;
+            height: auto !important;
+            position: relative !important;
         }
         
-        /* Remover margens do rodapé */
-        footer {
-            max-width: 100vw !important;
-            padding: 0 !important;
-        }
-        
-        /* Container principal sem espaçamentos */
-        .stApp {
-            max-width: 100vw !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        
-        /* Iframe do PowerBI ocupando toda a altura visível */
+        /* Iframe do PowerBI ocupando a altura restante */
         .iframe-container {
-            height: calc(100vh - 70px); /* Considera altura do cabeçalho */
+            height: calc(100vh - 120px); /* Espaço para cabeçalho/rodapé */
             width: 100vw;
             padding: 0;
             margin: 0;
-            overflow: hidden;
         }
         
-        /* Iframe interno - 100% do container */
+        /* Iframe interno */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
         
-        /* Ajustes para dispositivos móveis */
-        @media (max-width: 768px) {
-            .iframe-container {
-                height: calc(100vh - 50px);
-            }
+        /* Rodapé fixo na parte inferior */
+        footer {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            padding: 10px 0 !important;
+            background: white;
+            z-index: 100;
         }
     </style>
 """, unsafe_allow_html=True)
