@@ -1,50 +1,26 @@
+# Dashboard.py
 import streamlit as st
 import streamlit.components.v1 as components
-from utils import show_header, show_footer
+from utils import show_header, show_footer, is_mobile  # Importe a função is_mobile
 
 # Configuração de layout
 st.set_page_config(
     layout="wide", 
     page_title="Dashboard de Resíduos",
-    initial_sidebar_state="collapsed"  # Garante que não haja barra lateral
+    initial_sidebar_state="collapsed"
 )
 
-# CSS responsivo otimizado para todos os dispositivos
+# CSS responsivo otimizado
 st.markdown("""
     <style>
-        /* Remover espaçamentos indesejados */
-        section[data-testid="stSidebar"] { 
-            display: none !important; 
-        }
-        .stApp { 
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        header { 
-            padding: 0 !important; 
-        }
-        footer { 
-            padding: 0 !important; 
-        }
+        section[data-testid="stSidebar"] { display: none !important; }
+        .stApp { padding: 0 !important; margin: 0 !important; }
+        header, footer { padding: 0 !important; }
         
-        /* Container responsivo */
-        .responsive-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
+        .responsive-container { position: relative; width: 100%; overflow: hidden; }
+        .desktop-view { padding-top: 56.25%; } /* 16:9 */
+        .mobile-view { height: calc(100vh - 150px); } /* Altura ajustada */
         
-        /* Desktop: proporção 16:9 */
-        .desktop-view {
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        }
-        
-        /* Mobile: altura completa com aviso */
-        .mobile-view {
-            height: calc(100vh - 150px); /* Espaço para cabeçalho/rodapé */
-        }
-        
-        /* Iframe responsivo */
         .responsive-iframe {
             position: absolute;
             top: 0;
@@ -54,7 +30,6 @@ st.markdown("""
             border: none;
         }
         
-        /* Aviso para mobile */
         .mobile-warning {
             padding: 10px;
             text-align: center;
@@ -65,34 +40,12 @@ st.markdown("""
             border-radius: 5px;
         }
         
-        /* Melhorias para telas pequenas */
         @media (max-width: 768px) {
-            /* Ajusta o cabeçalho */
-            .stImage img {
-                max-height: 50px !important;
-            }
-            
-            /* Textos maiores */
-            .stMarkdown, .stMarkdown p {
-                font-size: 16px !important;
-            }
+            .stImage img { max-height: 50px !important; }
+            .stMarkdown, .stMarkdown p { font-size: 16px !important; }
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Função para detectar dispositivo móvel
-def is_mobile():
-    """Detecta se o usuário está em um dispositivo móvel"""
-    try:
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-        ctx = get_script_run_ctx()
-        if ctx is not None:
-            user_agent = ctx.request.headers.get("User-Agent", "").lower()
-            mobile_keywords = ['mobile', 'android', 'iphone', 'ipad', 'windows phone']
-            return any(keyword in user_agent for keyword in mobile_keywords)
-    except:
-        return False
-    return False
 
 # Mostra cabeçalho otimizado
 show_header(show_calculadora=False)
@@ -108,7 +61,7 @@ powerbi_link += "&rs:device=desktop"
 # Verifica se é dispositivo móvel
 is_mobile_device = is_mobile()
 
-# Container responsivo com aviso para mobile
+# Aviso para mobile
 if is_mobile_device:
     st.markdown(
         '<div class="mobile-warning">📱 Para melhor experiência, gire seu dispositivo para o modo paisagem</div>',

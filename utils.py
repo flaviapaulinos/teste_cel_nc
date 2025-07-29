@@ -1,6 +1,20 @@
-# utils.py
 import streamlit as st
-from device_detection import is_mobile
+
+def is_mobile():
+    """Detecta se o usuário está em um dispositivo móvel"""
+    try:
+        # Tenta obter o contexto do Streamlit
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+        ctx = get_script_run_ctx()
+        if ctx is not None:
+            user_agent = ctx.request.headers.get("User-Agent", "").lower()
+            mobile_keywords = ['mobile', 'android', 'iphone', 'ipad', 'windows phone']
+            return any(keyword in user_agent for keyword in mobile_keywords)
+    except:
+        # Fallback para caso de erro
+        return False
+    return False
+
 
 def show_header(show_calculadora=True):
     is_mobile_device = is_mobile()
