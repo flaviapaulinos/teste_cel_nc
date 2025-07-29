@@ -1,5 +1,6 @@
+--only-binary :all:
 streamlit==1.42.2
-pandas==2.0.3
-numpy==1.24.3
+pandas==2.2.1
+numpy==1.26.4
 matplotlib==3.8.3
 Pillow==10.3.0
