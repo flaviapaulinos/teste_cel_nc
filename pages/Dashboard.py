@@ -23,6 +23,13 @@ st.markdown("""
             max-width: 100vw !important;
         }
         
+        /* Remover margens do cabeçalho */
+        header {
+            max-width: 100vw !important;
+            left: 0 !important;
+            right: 0 !important;
+            padding: 0 !important;
+        }
         
         /* Remover margens do rodapé */
         footer {
@@ -37,7 +44,14 @@ st.markdown("""
             margin: 0 !important;
         }
         
-
+        /* Iframe do PowerBI ocupando toda a altura visível */
+        .iframe-container {
+            height: calc(100vh - 70px); /* Considera altura do cabeçalho */
+            width: 100vw;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
         
         /* Iframe interno - 100% do container */
         iframe {
