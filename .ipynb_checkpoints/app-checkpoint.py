@@ -258,7 +258,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 </div>
 """, unsafe_allow_html=True)
 
-  st.markdown("</div>", unsafe_allow_html=True)
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # Rodapé
 show_footer()
