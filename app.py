@@ -1,48 +1,72 @@
 import streamlit as st
+from utils import show_header, show_footer, is_mobile  # Importe a função is_mobile
 
-# Configuração de página com layout amplo
-st.set_page_config(layout="wide", page_title="Calculadora de Impacto Ambiental")
+# Configuração de layout responsivo
+st.set_page_config(
+    layout="wide",
+    page_title="Calculadora de Impacto Ambiental",
+    initial_sidebar_state="collapsed"
+)
 
-# === ADICIONE AQUI O CSS PARA REMOVER A BARRA LATERAL ===
+# CSS otimizado para dispositivos móveis
 st.markdown("""
     <style>
+        /* Remover barra lateral */
         section[data-testid="stSidebar"] {
             display: none !important;
         }
-        .block-container {
-            padding-top: 2rem;
-            max-width: 100% !important;
-            padding-left: 5%;
-            padding-right: 5%;
+        
+        /* Ajustes gerais */
+        .stApp {
+            padding: 0 !important;
+            margin: 0 !important;
         }
-        header {
-            max-width: 100% !important;
-            left: 0 !important;
+        
+        /* Container principal responsivo */
+        .main-container {
+            max-width: 100%;
+            padding: 10px;
+        }
+        
+        /* Melhorias para mobile */
+        @media (max-width: 768px) {
+            .stNumberInput input {
+                font-size: 16px !important;
+                padding: 12px !important;
+                height: auto !important;
+            }
+            
+            .stButton button {
+                font-size: 16px !important;
+                padding: 12px 20px !important;
+            }
+            
+            .stMarkdown p, .stMarkdown li {
+                font-size: 16px !important;
+                line-height: 1.6 !important;
+            }
+            
+            .stImage {
+                margin-bottom: 10px !important;
+            }
+            
+            .stContainer {
+                padding: 5px !important;
+            }
+            
+            /* Ajuste de colunas para mobile */
+            [data-testid="column"] {
+                width: 100% !important;
+                flex: unset !important;
+            }
         }
     </style>
 """, unsafe_allow_html=True)
 
+# Mostra cabeçalho
+show_header(show_calculadora=True)
 
-from utils import show_header, show_footer
 
-
-st.markdown("""
-    <style>
-    @font-face {
-        font-family: 'Avenir';
-        src: local('Avenir'), url('https://fonts.cdnfonts.com/s/15335/AvenirLTStd-Roman.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    html, body, [class*="css"] {
-        font-family: 'Avenir', sans-serif;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# No ambiente Render, use render_mode=True
-show_header()
 
 # === Dados e coeficientes ===
 percentual_coleta_seletiva = {
@@ -139,6 +163,12 @@ def calcular_impactos(kg_total, percentual):
 
 # === Container central para calculadora expandida ===
 with st.container():
+
+        # Adiciona o container principal responsivo
+        st.markdown("""
+        <div class="main-container">
+    """, unsafe_allow_html=True)
+
         st.markdown("""
 
 
@@ -228,5 +258,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
 </div>
 """, unsafe_allow_html=True)
 
-# === Rodapé ===
+  st.markdown("</div>", unsafe_allow_html=True)
+
+# Rodapé
 show_footer()
