@@ -1,6 +1,6 @@
 import streamlit as st
 from utils import show_header, show_footer
-from powerbi_component import powerbi_dashboard  # Importe a função do novo arquivo
+from dashboard_component import powerbi_dashboard  # Importe a função do novo arquivo
 # Configuração de layout
 st.set_page_config(layout="wide", page_title="Dashboard de Resíduos")
 # CSS para remover barra lateral e otimizar mobile
