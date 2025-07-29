@@ -1,5 +1,5 @@
 --only-binary :all:
 streamlit==1.42.2
 pandas==2.2.3
-numpy==1.24.3
+numpy==2.1.0
 Pillow==10.4.0
