@@ -1,11 +1,9 @@
 import streamlit as st
 
-def show_header(show_calculadora=True, render_mode=False):
+def show_header(show_calculadora=True):
+
     # Barra superior
-    if render_mode:
-        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)  # Sem use_container_width
-    else:
-        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
+    st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
     
     # Links com imagens e botões reais
     col1, col2, col3, col4 = st.columns([3, 1, 1,1 ])
@@ -28,9 +26,6 @@ def show_header(show_calculadora=True, render_mode=False):
              st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
 
-def show_footer(render_mode=False):
+def show_footer():
     st.markdown("---")
-    if render_mode:
-        st.image("imagem/logos.png", use_container_width=True)
-    else:
-        st.image("imagem/logos.png", use_container_width=True)
+    st.image("imagem/logos.png", use_container_width=True)
