@@ -93,17 +93,15 @@ if is_mobile_device:
     )
 
 # HTML para incorporar o Power BI
-st.markdown(
-    f"""
-    <div class="responsive-container {'mobile-view' if is_mobile_device else 'desktop-view'}">
-        <iframe class="responsive-iframe" 
-                src="{powerbi_link}" 
-                allowfullscreen>
-        </iframe>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown(f"""
+<div class="responsive-container">
+    <iframe class="responsive-iframe" 
+            src="{powerbi_link}" 
+            frameborder="0"
+            allowFullScreen="true">
+    </iframe>
+</div>
+""", unsafe_allow_html=True)
 
 # Rodapé otimizado
 show_footer()

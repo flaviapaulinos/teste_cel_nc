@@ -173,7 +173,7 @@ def calcular_impactos(kg_total, percentual):
         impactos["Energia economizada (R$)"] += qtd_kg * economia_energia[material] * ipca_2010_2025
         impactos["GEE evitado (tCO₂e)"] += qtd_kg * gee_evitada_tC02e[material]
         impactos["Água evitada (m³)"] += qtd_kg * consumo_agua_evitado_m3[material]
-        impactos["Área de monocultura evitada (ha/ano)"] += qtd_kg * area_monocultura_evitada_ha_ano[material] 
+        impactos["Área de monocultura evitada (ha/ano)"] += qtd_kg * area_monocultura_evitada_ha_ano[material] * 10000
         impactos["Economia com insumos (R$)"] += qtd_kg * economia_com_insumos[material] * ipca_2010_2025
         impactos["Benefícios sociais(R$)"] += qtd_kg * beneficios_sociais[material] * ipca_2010_2025
 
