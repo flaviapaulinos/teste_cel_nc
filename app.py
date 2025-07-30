@@ -1,12 +1,22 @@
 import streamlit as st
-from utils import show_header, show_footer, is_mobile  # Importe a função is_mobile
+from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-# Configuração de layout responsivo
+# 1. Captura mensagens do JavaScript primeiro
+capture_js_messages()
+
+# 2. Configuração de layout responsivo
 st.set_page_config(
     layout="wide",
     page_title="Calculadora de Impacto Ambiental",
     initial_sidebar_state="collapsed"
 )
+
+# 3. Detecta se é dispositivo móvel
+is_mobile_device = is_mobile()
+
+# 4. Mostra cabeçalho
+show_header(show_calculadora=True)
+
 
 # CSS otimizado para dispositivos móveis
 st.markdown("""

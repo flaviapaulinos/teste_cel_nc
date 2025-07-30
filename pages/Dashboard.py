@@ -1,53 +1,20 @@
-# Dashboard.py
 import streamlit as st
-import streamlit.components.v1 as components
-from utils import show_header, show_footer, is_mobile  # Importe a função is_mobile
+from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-# Configuração de layout
+# 1. Captura mensagens do JavaScript primeiro
+capture_js_messages()
+
+# 2. Configuração de layout
 st.set_page_config(
     layout="wide", 
     page_title="Dashboard de Resíduos",
     initial_sidebar_state="collapsed"
 )
 
-# CSS responsivo otimizado
-st.markdown("""
-    <style>
-        section[data-testid="stSidebar"] { display: none !important; }
-        .stApp { padding: 0 !important; margin: 0 !important; }
-        header, footer { padding: 0 !important; }
-        
-        .responsive-container { position: relative; width: 100%; overflow: hidden; }
-        .desktop-view { padding-top: 56.25%; } /* 16:9 */
-        .mobile-view { height: calc(100vh - 150px); } /* Altura ajustada */
-        
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .mobile-warning {
-            padding: 10px;
-            text-align: center;
-            background-color: #fff8e1;
-            color: #333;
-            font-size: 14px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        
-        @media (max-width: 768px) {
-            .stImage img { max-height: 50px !important; }
-            .stMarkdown, .stMarkdown p { font-size: 16px !important; }
-        }
-    </style>
-""", unsafe_allow_html=True)
+# 3. Detecta se é dispositivo móvel
+is_mobile_device = is_mobile()
 
-# Mostra cabeçalho otimizado
+# 4. Mostra cabeçalho
 show_header(show_calculadora=False)
 
 # URL do Power BI
