@@ -62,14 +62,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Aviso otimizado para mobile
-if is_mobile_device:
-    st.markdown(
-        '<div class="mobile-warning">'
-        '<strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
-        '</div>',
-        unsafe_allow_html=True
-    )
+
 
 # URL do Power BI
 powerbi_link = "https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmLTgyODgtMTE5Y2UwOTc2MjQ2IiwidCI6ImU5YTgyZWM3LTRhODYtNDNkZS1hYjJhLTcxOWQ2Njk1OWExYiJ9"
@@ -86,7 +79,7 @@ is_mobile_device = is_mobile()
 # Aviso para mobile
 if is_mobile_device:
     st.markdown(
-        '<div class="mobile-warning">📱 Para melhor experiência, gire seu dispositivo para o modo paisagem</div>',
+        '<div class="mobile-warning"> Para melhor experiência, gire seu dispositivo para o modo paisagem</div>',
         unsafe_allow_html=True
     )
 
