@@ -134,7 +134,7 @@ with st.container():
 
         st.markdown("""
 <div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
-Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não têm como ser expressos em números; <strong> mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números.</strong>
+Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. Esses benefícios são imensos e não podem ser expressos em números; <strong> mas alguns benefícios econômicos, sociais e ambientais podem ser expressos em números.</strong>
 </div>
 """, unsafe_allow_html=True)
         st.markdown(" ")
@@ -203,7 +203,7 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
             
             st.markdown("""
 <div style='background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:20px;'>
-<strong> Imagine o impacto, se todos os habitantes de Belo Horizonte destinassem corretamente seus resíduos recicláveis!</strong>
+<strong> Imagine o impacto se todos os habitantes de Belo Horizonte destinassem corretamente seus resíduos recicláveis!</strong>
 *Fonte: Pesquisa sobre Pagamento por Serviços Ambientais Urbanos para Gestão de Resíduos Sólidos, elaborada pelo Instituto de Pesquisa Econômica Aplicada (IPEA, 2010).<br>
 *Valores corrigidos pelo IPCA
 </div>
