@@ -1,19 +1,17 @@
 import streamlit as st
-from utils import show_header, show_footer, is_mobile, capture_js_messages
+from utils import show_header, show_footer, is_mobile
 
-@st.cache_resource(experimental_allow_widgets=True)
-def setup():
-    # Configurações iniciais
-    capture_js_messages()
 
-# 2. Configuração de layout
+#  Configuração de layout
 st.set_page_config(
     layout="wide", 
     page_title="Dashboard de Resíduos",
     initial_sidebar_state="collapsed"
 )
 
-# 3. Detecta se é dispositivo móvel
+
+    
+#  Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()
 
 st.markdown("""
@@ -68,7 +66,7 @@ st.markdown("""
 if is_mobile_device:
     st.markdown(
         '<div class="mobile-warning">'
-        '📱 <strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
+        '<strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
         '</div>',
         unsafe_allow_html=True
     )
@@ -93,17 +91,15 @@ if is_mobile_device:
     )
 
 # HTML para incorporar o Power BI
-st.markdown(
-    f"""
-    <div class="responsive-container {'mobile-view' if is_mobile_device else 'desktop-view'}">
-        <iframe class="responsive-iframe" 
-                src="{powerbi_link}" 
-                allowfullscreen>
-        </iframe>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+st.markdown(f"""
+<div class="responsive-container">
+    <iframe class="responsive-iframe" 
+            src="{powerbi_link}" 
+            frameborder="0"
+            allowFullScreen="true">
+    </iframe>
+</div>
+""", unsafe_allow_html=True)
 
 # Rodapé otimizado
 show_footer()

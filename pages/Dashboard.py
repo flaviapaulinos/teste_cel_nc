@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import show_header, show_footer, is_mobile, capture_js_messages
+from utils import show_header, show_footer, is_mobile
 
 
 #  Configuração de layout
@@ -66,7 +66,7 @@ st.markdown("""
 if is_mobile_device:
     st.markdown(
         '<div class="mobile-warning">'
-        '📱 <strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
+        '<strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
         '</div>',
         unsafe_allow_html=True
     )
