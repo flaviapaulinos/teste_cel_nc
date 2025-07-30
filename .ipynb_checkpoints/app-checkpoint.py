@@ -80,11 +80,6 @@ st.markdown("""
 # Mostra cabeçalho
 show_header(show_calculadora=True)
 
-# No início do conteúdo principal, após mostrar o header:
-if "force_mobile" in st.query_params:
-    st.info("📱 Você está visualizando a versão para celular (modo forçado)")
-elif "force_desktop" in st.query_params:
-    st.info("💻 Você está visualizando a versão para computador (modo forçado)")
 
 # === Dados e coeficientes ===
 percentual_coleta_seletiva = {

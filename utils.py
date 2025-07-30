@@ -28,8 +28,9 @@ def show_header(show_calculadora=True):
     
     # Mostra a barra superior
     if mobile_mode:
-        st.image("imagem/barra_sup_mob.png", use_container_width=True)
-
+        st.image("imagem/barra_sup_mobile.png", use_container_width=True)
+            # Mostra indicador de modo
+        
         # Links com imagens e botões reais
         col1, col2, col3, col4 = st.columns([3, 1, 1,1 ])
         if show_calculadora:
@@ -51,7 +52,8 @@ def show_header(show_calculadora=True):
                  st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
     else:
-        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
+        st.image("imagem/novo_ciclo_sup_desktop, use_container_width=True)
+          # Mostra indicador de modo
 
 
         # Links com imagens e botões reais
@@ -63,6 +65,7 @@ def show_header(show_calculadora=True):
         
             with col4:
                 st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
+                
         
             # Imagem indicadora da calculadora
             st.image("imagem/calculadora_circulos.png", use_container_width=True)
@@ -74,15 +77,7 @@ def show_header(show_calculadora=True):
             with col4:
                  st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
     
-    # Mostra indicador de modo
-    mode_indicator = "Modo Celular" if mobile_mode else " Modo Computador"
 
-    st.markdown(f"""
-    
-    <div style="text-align: right; margin: 10px 10px 10px 10px; position: relative; z-index: 100;">
-        <small>{mode_indicator}</small>
-    </div>
-    """, unsafe_allow_html=True)
     
 
 def show_footer():
