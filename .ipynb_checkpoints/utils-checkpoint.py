@@ -28,7 +28,7 @@ def show_header(show_calculadora=True):
     
     # Mostra a barra superior
     if mobile_mode:
-        st.image("imagem/barra_sup_mob.png", use_container_width=True)
+        st.image("imagem/header_mob.png", use_container_width=True)
 
         # Links com imagens e botões reais
         col1, col2, col3, col4 = st.columns([3, 1, 1,1 ])
@@ -51,7 +51,7 @@ def show_header(show_calculadora=True):
                  st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
     else:
-        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
+        st.image("imagem/header.png", use_container_width=True)
 
 
         # Links com imagens e botões reais
