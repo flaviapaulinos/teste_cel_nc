@@ -140,6 +140,6 @@ def show_footer():
     <div style="text-align: center; margin-top: 20px;">
         <a href="?force_mobile=1">Versão para celular</a> | 
         <a href="?force_desktop=1">Versão para computador</a>
-    </div>
-
+    </div>"""
+               )
     
