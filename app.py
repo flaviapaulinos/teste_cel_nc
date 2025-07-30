@@ -1,8 +1,12 @@
 import streamlit as st
 from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-# 1. Captura mensagens do JavaScript primeiro
-capture_js_messages()
+@st.cache_resource(experimental_allow_widgets=True)
+def setup():
+    # Configurações iniciais
+    capture_js_messages()
+
+setup()
 
 # 2. Configuração de layout responsivo
 st.set_page_config(
@@ -14,8 +18,7 @@ st.set_page_config(
 # 3. Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()
 
-# 4. Mostra cabeçalho
-show_header(show_calculadora=True)
+
 
 
 # CSS otimizado para dispositivos móveis
@@ -24,6 +27,16 @@ st.markdown("""
         /* Remover barra lateral */
         section[data-testid="stSidebar"] {
             display: none !important;
+        }
+
+        /*ajuste botao */
+        .mode-switcher a {
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .mode-switcher a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         /* Ajustes gerais */
@@ -76,7 +89,11 @@ st.markdown("""
 # Mostra cabeçalho
 show_header(show_calculadora=True)
 
-
+# No início do conteúdo principal, após mostrar o header:
+if "force_mobile" in st.experimental_get_query_params():
+    st.info("📱 Você está visualizando a versão para celular (modo forçado)")
+elif "force_desktop" in st.experimental_get_query_params():
+    st.info("💻 Você está visualizando a versão para computador (modo forçado)")
 
 # === Dados e coeficientes ===
 percentual_coleta_seletiva = {
@@ -156,7 +173,7 @@ def calcular_impactos(kg_total, percentual):
         impactos["Energia economizada (R$)"] += qtd_kg * economia_energia[material] * ipca_2010_2025
         impactos["GEE evitado (tCO₂e)"] += qtd_kg * gee_evitada_tC02e[material]
         impactos["Água evitada (m³)"] += qtd_kg * consumo_agua_evitado_m3[material]
-        impactos["Área de monocultura evitada (ha/ano)"] += qtd_kg * area_monocultura_evitada_ha_ano[material]*10000
+        impactos["Área de monocultura evitada (ha/ano)"] += qtd_kg * area_monocultura_evitada_ha_ano[material] 
         impactos["Economia com insumos (R$)"] += qtd_kg * economia_com_insumos[material] * ipca_2010_2025
         impactos["Benefícios sociais(R$)"] += qtd_kg * beneficios_sociais[material] * ipca_2010_2025
 
@@ -207,8 +224,8 @@ Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios
             sacos30_nao_recicla = st.number_input("Sacos 30 litros com lixo convencional", min_value=0, step=1, key="sacos30_nao_recicla")
         
         # === Peso total (em kg por ano - 52 semanas) ===
-        kg_recicla = (sacolas_recicla * peso_sacola_coleta_seletiva + sacos30_recicla * peso_saco_30l_seletiva) * 52.1786
-        kg_nao_recicla = (sacolas_nao_recicla * peso_sacola_convencional + sacos30_nao_recicla * peso_saco_30l_convencional) * 52.1786
+        kg_recicla = (sacolas_recicla * peso_sacola_coleta_seletiva + sacos30_recicla * peso_saco_30l_seletiva) * 52
+        kg_nao_recicla = (sacolas_nao_recicla * peso_sacola_convencional + sacos30_nao_recicla * peso_saco_30l_convencional) * 52
 
     
         

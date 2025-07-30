@@ -1,8 +1,10 @@
 import streamlit as st
 from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-# 1. Captura mensagens do JavaScript primeiro
-capture_js_messages()
+@st.cache_resource(experimental_allow_widgets=True)
+def setup():
+    # Configurações iniciais
+    capture_js_messages()
 
 # 2. Configuração de layout
 st.set_page_config(
@@ -14,8 +16,62 @@ st.set_page_config(
 # 3. Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()
 
+st.markdown("""
+<style>
+    .responsive-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%; /* Proporção 4:3 */
+    }
+    
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .responsive-container {
+            padding-top: 120%; /* Maior altura para mobile */
+        }
+    }
+    
+    .mobile-warning {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+        border-left: 4px solid #ffc107;
+    }
+</style>
+""", unsafe_allow_html=True)
 # 4. Mostra cabeçalho
 show_header(show_calculadora=False)
+st.markdown("""
+    <style>
+        .mode-switcher a {
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        .mode-switcher a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Aviso otimizado para mobile
+if is_mobile_device:
+    st.markdown(
+        '<div class="mobile-warning">'
+        '📱 <strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 # URL do Power BI
 powerbi_link = "https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmLTgyODgtMTE5Y2UwOTc2MjQ2IiwidCI6ImU5YTgyZWM3LTRhODYtNDNkZS1hYjJhLTcxOWQ2Njk1OWExYiJ9"
@@ -24,6 +80,7 @@ powerbi_link = "https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmL
 powerbi_link += "&rs:embed=true"
 powerbi_link += "&rs:command=Render"
 powerbi_link += "&rs:device=desktop"
+powerbi_link += "&rs:SuppressErrorRedirect=true"
 
 # Verifica se é dispositivo móvel
 is_mobile_device = is_mobile()

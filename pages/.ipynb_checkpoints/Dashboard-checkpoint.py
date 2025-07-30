@@ -1,101 +1,77 @@
 import streamlit as st
-import streamlit.components.v1 as components
-from utils import show_header, show_footer
+from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-# Configuração de layout
+@st.cache_resource(experimental_allow_widgets=True)
+def setup():
+    # Configurações iniciais
+    capture_js_messages()
+
+# 2. Configuração de layout
 st.set_page_config(
     layout="wide", 
     page_title="Dashboard de Resíduos",
-    initial_sidebar_state="collapsed"  # Garante que não haja barra lateral
+    initial_sidebar_state="collapsed"
 )
 
-# CSS responsivo otimizado para todos os dispositivos
+# 3. Detecta se é dispositivo móvel
+is_mobile_device = is_mobile()
+
+st.markdown("""
+<style>
+    .responsive-container {
+        position: relative;
+        overflow: hidden;
+        padding-top: 75%; /* Proporção 4:3 */
+    }
+    
+    .responsive-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    
+    @media (max-width: 768px) {
+        .responsive-container {
+            padding-top: 120%; /* Maior altura para mobile */
+        }
+    }
+    
+    .mobile-warning {
+        background-color: #fff8e1;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+        border-left: 4px solid #ffc107;
+    }
+</style>
+""", unsafe_allow_html=True)
+# 4. Mostra cabeçalho
+show_header(show_calculadora=False)
 st.markdown("""
     <style>
-        /* Remover espaçamentos indesejados */
-        section[data-testid="stSidebar"] { 
-            display: none !important; 
+        .mode-switcher a {
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
-        .stApp { 
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        header { 
-            padding: 0 !important; 
-        }
-        footer { 
-            padding: 0 !important; 
-        }
-        
-        /* Container responsivo */
-        .responsive-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-        
-        /* Desktop: proporção 16:9 */
-        .desktop-view {
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        }
-        
-        /* Mobile: altura completa com aviso */
-        .mobile-view {
-            height: calc(100vh - 150px); /* Espaço para cabeçalho/rodapé */
-        }
-        
-        /* Iframe responsivo */
-        .responsive-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        /* Aviso para mobile */
-        .mobile-warning {
-            padding: 10px;
-            text-align: center;
-            background-color: #fff8e1;
-            color: #333;
-            font-size: 14px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-        
-        /* Melhorias para telas pequenas */
-        @media (max-width: 768px) {
-            /* Ajusta o cabeçalho */
-            .stImage img {
-                max-height: 50px !important;
-            }
-            
-            /* Textos maiores */
-            .stMarkdown, .stMarkdown p {
-                font-size: 16px !important;
-            }
+        .mode-switcher a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
     </style>
 """, unsafe_allow_html=True)
 
-# Função para detectar dispositivo móvel
-def is_mobile():
-    """Detecta se o usuário está em um dispositivo móvel"""
-    try:
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-        ctx = get_script_run_ctx()
-        if ctx is not None:
-            user_agent = ctx.request.headers.get("User-Agent", "").lower()
-            mobile_keywords = ['mobile', 'android', 'iphone', 'ipad', 'windows phone']
-            return any(keyword in user_agent for keyword in mobile_keywords)
-    except:
-        return False
-    return False
-
-# Mostra cabeçalho otimizado
-show_header(show_calculadora=False)
+# Aviso otimizado para mobile
+if is_mobile_device:
+    st.markdown(
+        '<div class="mobile-warning">'
+        '📱 <strong>Dica:</strong> Para melhor visualização, use seu dispositivo na horizontal (modo paisagem)'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 # URL do Power BI
 powerbi_link = "https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmLTgyODgtMTE5Y2UwOTc2MjQ2IiwidCI6ImU5YTgyZWM3LTRhODYtNDNkZS1hYjJhLTcxOWQ2Njk1OWExYiJ9"
@@ -104,11 +80,12 @@ powerbi_link = "https://app.powerbi.com/view?r=eyJrIjoiYTE0NTliNjQtMTYzMC00MDZmL
 powerbi_link += "&rs:embed=true"
 powerbi_link += "&rs:command=Render"
 powerbi_link += "&rs:device=desktop"
+powerbi_link += "&rs:SuppressErrorRedirect=true"
 
 # Verifica se é dispositivo móvel
 is_mobile_device = is_mobile()
 
-# Container responsivo com aviso para mobile
+# Aviso para mobile
 if is_mobile_device:
     st.markdown(
         '<div class="mobile-warning">📱 Para melhor experiência, gire seu dispositivo para o modo paisagem</div>',
