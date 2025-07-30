@@ -9,10 +9,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-@st.cache_resource(experimental_allow_widgets=True)
-def setup():
-    # Configurações iniciais
-    capture_js_messages()
+
     
 #  Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()

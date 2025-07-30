@@ -1,62 +1,26 @@
 import streamlit as st
-import re
 
-import streamlit as st
-
-# Corrija a função is_mobile
 def is_mobile():
-    """Determina se deve mostrar a versão mobile"""
-    query_params = st.experimental_get_query_params()
+    """Determina se deve mostrar a versão mobile, considerando a preferência do usuário"""
+    # Verifica se o usuário forçou um modo específico
+    query_params = st.query_params()
     
     if "force_mobile" in query_params:
         return True
     if "force_desktop" in query_params:
         return False
     
+    # Tenta detecção automática usando headers
     try:
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-        ctx = get_script_run_ctx()
+        ctx = st.runtime.scriptrunner.script_run_context.get_script_run_ctx()
         if ctx and hasattr(ctx, 'request'):
             user_agent = ctx.request.headers.get("User-Agent", "").lower()
-            mobile_keywords = ['mobi', 'android', 'iphone', 'ipad']
-            return any(k in user_agent for k in mobile_keywords)
+            mobile_keywords = ['mobile', 'android', 'iphone', 'ipad', 'windows phone']
+            return any(keyword in user_agent for keyword in mobile_keywords)
     except Exception:
         pass
     
     return False
-
-
-# Função para capturar mensagens do JavaScript
-def capture_js_messages():
-    """Captura mensagens do JavaScript para detectar tamanho de tela"""
-    # Componente para receber mensagens do JavaScript
-    st.components.v1.html("""
-        <script>
-        window.addEventListener('message', (event) => {
-            if (event.data.type === 'screenSize') {
-                const screenWidth = event.data.screenWidth;
-                window.parent.postMessage({
-                    type: 'setScreenWidth', 
-                    screenWidth: screenWidth
-                }, '*');
-            }
-        });
-        </script>
-    """, height=0)
-    
-    # Tenta capturar a mensagem do JavaScript
-    try:
-        # Nova forma: usando st.runtime.scriptrunner.script_run_context
-        from streamlit.runtime.scriptrunner import get_script_run_ctx
-        ctx = get_script_run_ctx()
-        if ctx is not None:
-            # Acesse os headers do contexto
-            headers = ctx.script_requests.headers
-            if headers and 'screenWidth' in headers:
-                st.session_state.screen_width = int(headers['screenWidth'])
-    except Exception as e:
-        # Em caso de erro, apenas ignore
-        pass
 
 def show_header(show_calculadora=True):
     # Determina o modo atual
@@ -89,7 +53,11 @@ def show_footer():
     st.markdown("""
     <div class="mode-switcher" style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f0f2f6; border-radius: 5px;">
         <p style="margin-bottom: 10px;">Alterar versão:</p>
-        <a href="?force_mobile=1" style="...">Versão para Celular</a>
-        <a href="?force_desktop=1" style="...">Versão para Computador</a>  # Corrigido para 'desktop'
+        <a href="?force_mobile=1" style="margin: 0 10px; padding: 8px 15px; background-color: #4CAF50; color: white; border-radius: 4px; text-decoration: none; display: inline-block;">
+            Versão para Celular
+        </a>
+        <a href="?force_desktop=1" style="margin: 0 10px; padding: 8px 15px; background-color: #2196F3; color: white; border-radius: 4px; text-decoration: none; display: inline-block;">
+            Versão para Computador
+        </a>
     </div>
     """, unsafe_allow_html=True)

@@ -1,25 +1,15 @@
 import streamlit as st
-from utils import show_header, show_footer, is_mobile, capture_js_messages
+from utils import show_header, show_footer, is_mobile  # Removi capture_js_messages
 
-#  Configuração de layout responsivo
+# 1. DEVE SER O PRIMEIRO COMANDO: Configuração de layout responsivo
 st.set_page_config(
     layout="wide",
     page_title="Calculadora de Impacto Ambiental",
     initial_sidebar_state="collapsed"
 )
 
-@st.cache_resource(experimental_allow_widgets=True)
-def setup():
-    # Configurações iniciais
-    capture_js_messages()
-
-setup()
-
-#  Detecta se é dispositivo móvel
+# 2. Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()
-
-
-
 
 # CSS otimizado para dispositivos móveis
 st.markdown("""
@@ -85,6 +75,7 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
+
 
 # Mostra cabeçalho
 show_header(show_calculadora=True)
