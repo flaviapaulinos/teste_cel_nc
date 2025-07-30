@@ -1,20 +1,43 @@
 import streamlit as st
+import re
 
 def is_mobile():
-    """Detecta se o usuário está em um dispositivo móvel"""
+    """Detecta com mais precisão se o usuário está em um dispositivo móvel"""
     try:
-        # Tenta obter o contexto do Streamlit
+        # Tenta obter o User-Agent do contexto do Streamlit
         from streamlit.runtime.scriptrunner import get_script_run_ctx
         ctx = get_script_run_ctx()
         if ctx is not None:
             user_agent = ctx.request.headers.get("User-Agent", "").lower()
-            mobile_keywords = ['mobile', 'android', 'iphone', 'ipad', 'windows phone']
-            return any(keyword in user_agent for keyword in mobile_keywords)
+        else:
+            # Fallback para User-Agent do navegador
+            user_agent = st.experimental_user_agent.lower()
     except:
-        # Fallback para caso de erro
-        return False
-    return False
-
+        # Fallback para User-Agent do navegador
+        user_agent = st.experimental_user_agent.lower()
+    
+    # Palavras-chave para detecção de dispositivos móveis
+    mobile_keywords = [
+        'mobile', 'android', 'iphone', 'ipad', 'windows phone',
+        'blackberry', 'webos', 'iemobile', 'kindle', 'opera mini'
+    ]
+    
+    # Verifica se é um tablet (alguns tablets podem ser detectados como mobile)
+    tablet_keywords = ['ipad', 'tablet', 'playbook', 'nexus 7', 'nexus 10']
+    
+    # Expressão regular para detectar dispositivos móveis
+    mobile_pattern = r'android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile'
+    
+    # Verifica se é um dispositivo móvel
+    is_mobile_device = any(keyword in user_agent for keyword in mobile_keywords)
+    is_tablet = any(keyword in user_agent for keyword in tablet_keywords)
+    
+    # Verificação adicional com regex
+    if re.search(mobile_pattern, user_agent, re.IGNORECASE):
+        is_mobile_device = True
+    
+    # Considera tablets como dispositivos móveis para nossos propósitos
+    return is_mobile_device or is_tablet
 
 def show_header(show_calculadora=True):
     is_mobile_device = is_mobile()
