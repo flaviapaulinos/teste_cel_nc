@@ -108,7 +108,7 @@ def show_footer():
     st.markdown("""
     <div class="mode-switcher" style="text-align: center; margin: 20px 0; padding: 15px; background-color: #f0f2f6; border-radius: 5px;">
         <a href="?force_mobile=1" style="width: 80%; padding: 12px 15px; background-color: #4CAF50; color: white; border-radius: 4px; text-decoration: none; text-align: center;">
-            alterar para visuzaliação no celular
+            alterar para visualização no celular
         </a>
     </div>
     """, unsafe_allow_html=True)
