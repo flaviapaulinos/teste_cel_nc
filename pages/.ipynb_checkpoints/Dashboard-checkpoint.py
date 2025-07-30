@@ -79,7 +79,7 @@ is_mobile_device = is_mobile()
 # Aviso para mobile
 if is_mobile_device:
     st.markdown(
-        '<div class="mobile-warning"> Para melhor experiência, gire seu dispositivo para o modo paisagem</div>',
+        '<div class="mobile-warning"> Para melhor experiência, gire seu dispositivo para o modo paisagem e use o modo claro</div>',
         unsafe_allow_html=True
     )
 
