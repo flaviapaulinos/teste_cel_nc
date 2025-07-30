@@ -100,14 +100,12 @@ def show_footer():
     
     st.markdown("""
     <div class="mode-switcher" style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f0f2f6; border-radius: 5px;">
-        <p style="margin-bottom: 15px;">Alterar versão:</p>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-            <a href="?force_mobile=1" style="width: 80%; padding: 12px 15px; background-color: #4CAF50; color: white; border-radius: 4px; text-decoration: none; text-align: center;">
-                Versão para Celular
-            </a>
-            <a href="?force_desktop=1" style="width: 80%; padding: 12px 15px; background-color: #2196F3; color: white; border-radius: 4px; text-decoration: none; text-align: center;">
-                Versão para Computador
-            </a>
-        </div>
-
+        <p style="margin-bottom: 10px;">Alterar versão:</p>
+        <a href="?force_mobile=1" style="margin: 10px 10px 10px 10px; padding: 8px 15px; background-color: #4CAF50; color: white; border-radius: 4px; text-decoration: none; display: inline-block;">
+            Versão para Celular
+        </a>
+        <a href="?force_desktop=1" style="margin: 10px 10px 10px 10px; padding: 8px 15px; background-color: #2196F3; color: white; border-radius: 4px; text-decoration: none; display: inline-block;">
+            Versão para Computador
+        </a>
+    </div>
     """, unsafe_allow_html=True)

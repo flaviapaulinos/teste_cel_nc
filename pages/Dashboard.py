@@ -90,6 +90,14 @@ if is_mobile_device:
         unsafe_allow_html=True
     )
 
+      st.markdown("""
+
+
+<div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
+Você pode interagir com os gráficos, filtrar as informações por ano e material.
+Para navegar pelas páginas do análise, basta clicar nos ícones disponíveis na barra lateral à esquerda.
+</div>
+""", unsafe_allow_html=True)
 # HTML para incorporar o Power BI
 st.markdown(f"""
 <div class="responsive-container">
