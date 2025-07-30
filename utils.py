@@ -52,7 +52,7 @@ def show_header(show_calculadora=True):
                  st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
     else:
-        st.image("imagem/novo_ciclo_sup_desktop, use_container_width=True)
+        st.image("imagem/novo_ciclo_sup_desktop", use_container_width=True)
           # Mostra indicador de modo
 
 
