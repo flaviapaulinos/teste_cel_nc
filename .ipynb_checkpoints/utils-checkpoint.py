@@ -3,7 +3,7 @@ import streamlit as st
 def is_mobile():
     """Determina se deve mostrar a versão mobile, considerando a preferência do usuário"""
     # Verifica se o usuário forçou um modo específico
-    query_params = st.query_params()
+    query_params = st.query_params
     
     if "force_mobile" in query_params:
         return True
