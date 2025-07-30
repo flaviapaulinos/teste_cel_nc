@@ -28,9 +28,8 @@ def show_header(show_calculadora=True):
     
     # Mostra a barra superior
     if mobile_mode:
-        st.image("imagem/barra_sup_mobile.png", use_container_width=True)
-            # Mostra indicador de modo
-        
+        st.image("imagem/barra_sup_mob.png", use_container_width=True)
+
         # Links com imagens e botões reais
         col1, col2, col3, col4 = st.columns([3, 1, 1,1 ])
         if show_calculadora:
@@ -52,8 +51,7 @@ def show_header(show_calculadora=True):
                  st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
         
     else:
-        st.image("imagem/novo_ciclo_sup_desktop.png", use_container_width=True)
-          # Mostra indicador de modo
+        st.image("imagem/novo_ciclo_sup1.png", use_container_width=True)
 
 
         # Links com imagens e botões reais
@@ -81,15 +79,25 @@ def show_header(show_calculadora=True):
     
 
 def show_footer():
-    st.markdown("---")
-    
+        
     # Mostra a imagem do rodapé
     if is_mobile():
         st.image("imagem/logos_mob.png", use_container_width=True)
     else:
         st.image("imagem/logos.png", use_container_width=True)
+
+        # No início do conteúdo principal, após mostrar o header:
+
     
     # Links para alternar entre versões
+
+    st.markdown("---")
+    if "force_mobile" in st.query_params:
+        st.info(" Você está visualizando a versão para celular")
+    elif "force_desktop" in st.query_params:
+        st.info(" Você está visualizando a versão para desktop")
+
+    
     st.markdown("""
     <div class="mode-switcher" style="text-align: center; margin-top: 20px; padding: 10px; background-color: #f0f2f6; border-radius: 5px;">
         <p style="margin-bottom: 10px;">Alterar versão:</p>
