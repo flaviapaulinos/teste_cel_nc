@@ -30,7 +30,7 @@ def is_mobile():
 def capture_js_messages():
     """Captura mensagens do JavaScript para detectar tamanho de tela"""
     # Componente para receber mensagens do JavaScript
-    result = st.components.v1.html("""
+    st.components.v1.html("""
         <script>
         window.addEventListener('message', (event) => {
             if (event.data.type === 'screenSize') {
@@ -46,13 +46,17 @@ def capture_js_messages():
     
     # Tenta capturar a mensagem do JavaScript
     try:
-        from streamlit.web.server.websocket_headers import _get_websocket_headers
-        headers = _get_websocket_headers()
-        if headers and 'screenWidth' in headers:
-            st.session_state.screen_width = int(headers['screenWidth'])
-    except:
+        # Nova forma: usando st.runtime.scriptrunner.script_run_context
+        from streamlit.runtime.scriptrunner import get_script_run_ctx
+        ctx = get_script_run_ctx()
+        if ctx is not None:
+            # Acesse os headers do contexto
+            headers = ctx.script_requests.headers
+            if headers and 'screenWidth' in headers:
+                st.session_state.screen_width = int(headers['screenWidth'])
+    except Exception as e:
+        # Em caso de erro, apenas ignore
         pass
-
 
 def show_header(show_calculadora=True):
     # Determina o modo atual

@@ -1,19 +1,20 @@
 import streamlit as st
 from utils import show_header, show_footer, is_mobile, capture_js_messages
 
-@st.cache_resource(experimental_allow_widgets=True)
-def setup():
-    # Configurações iniciais
-    capture_js_messages()
 
-# 2. Configuração de layout
+#  Configuração de layout
 st.set_page_config(
     layout="wide", 
     page_title="Dashboard de Resíduos",
     initial_sidebar_state="collapsed"
 )
 
-# 3. Detecta se é dispositivo móvel
+@st.cache_resource(experimental_allow_widgets=True)
+def setup():
+    # Configurações iniciais
+    capture_js_messages()
+    
+#  Detecta se é dispositivo móvel
 is_mobile_device = is_mobile()
 
 st.markdown("""
