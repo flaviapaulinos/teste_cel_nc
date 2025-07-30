@@ -90,7 +90,7 @@ if is_mobile_device:
         unsafe_allow_html=True
     )
 
-      st.markdown("""
+    st.markdown("""
 
 
 <div style='text-align: center; background-color:#f0f2f6; padding:15px; border-radius:5px; margin-top:5px;'>
