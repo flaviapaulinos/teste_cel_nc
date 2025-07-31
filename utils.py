@@ -84,7 +84,7 @@ def show_header(show_calculadora=True):
                 st.page_link("pages/Dashboard.py", label="**Análise Resíduos BH**")
             with col4:
                 st.page_link("https://novocicloresiduos.com.br/", label="**Sobre o Projeto**")
-            st.image("imagem/bar_calc.png", use_container_width=True)
+            st.image("imagem/calc_bar.png", use_container_width=True)
         else:
             with col2:
                 st.page_link("app.py", label="**Calculadora de impacto coleta seletiva**")
