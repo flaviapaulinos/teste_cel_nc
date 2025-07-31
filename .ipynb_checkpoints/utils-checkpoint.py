@@ -1,3 +1,5 @@
+import streamlit as st
+
 def is_mobile():
     """Determina se deve mostrar a versão mobile, considerando a preferência do usuário"""
     # Verifica se o usuário forçou um modo específico
