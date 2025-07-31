@@ -97,7 +97,7 @@ st.markdown(f"""
 
 st.markdown("""
 Você pode interagir com os gráficos, filtrar as informações por ano e material.
-Para navegar pelas páginas do análise, basta clicar nos ícones disponíveis na barra lateral à esquerda.
+Para navegar pelas páginas da análise, basta clicar nos ícones disponíveis na barra lateral à esquerda.
 """)
 
 # Rodapé otimizado
