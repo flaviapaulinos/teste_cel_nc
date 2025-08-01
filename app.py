@@ -105,9 +105,9 @@ percentual_coleta_seletiva = {
 # Percentuais para coleta convencional (quando o usuário não recicla)
 percentual_coleta_convencional = {
     'percentual_papel':  0.1529,
-    'percentual_plastico': 0.14437,
+    'percentual_plastico': 0.1439,
     'percentual_metais': 0.0116,
-    'percentual_vidro': 0.02918,
+    'percentual_vidro': 0.0292,
 }
 
 # Os demais coeficientes permanecem os mesmos
@@ -200,10 +200,6 @@ def calcular_impactos(kg_total, percentual):
 # === Container central para calculadora expandida ===
 with st.container():
     # Adiciona o container principal responsivo com fundo adaptável
-    st.markdown("""
-        <div class="calculator-container">
-    """, unsafe_allow_html=True)
-
     st.markdown("""
     <div class="info-box">
         Quando a indústria utiliza materiais reciclados, menos árvores, animais e rios são impactados. 
