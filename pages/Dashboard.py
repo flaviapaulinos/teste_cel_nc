@@ -38,6 +38,7 @@ st.markdown("""
     }
     
     .mobile-warning {
+        color: #333333;
         background-color: #fff8e1;
         padding: 15px;
         border-radius: 5px;
@@ -74,6 +75,8 @@ powerbi_link += "&rs:device=desktop"
 powerbi_link += "&rs:SuppressErrorRedirect=true"
 powerbi_link += "&theme=light"  
 
+
+
 # Verifica se é dispositivo móvel
 is_mobile_device = is_mobile()
 
@@ -84,10 +87,9 @@ if is_mobile_device:
         unsafe_allow_html=True
     )
 
-st.markdown(
-        '<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda.</div>',
-        unsafe_allow_html=True
-    )
+st.markdown('<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda.</div>',
+    unsafe_allow_html=True
+)
 
 
 # HTML para incorporar o Power BI
