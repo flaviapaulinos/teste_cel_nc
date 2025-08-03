@@ -29,10 +29,6 @@ def show_header(show_calculadora=True):
     # Constrói a query string para manter o modo
     query_string = "?force_mobile=1" if "force_mobile" in params else ""
     
-def show_header(show_calculadora=True):
-    # Determina o modo atual
-    mobile_mode = is_mobile()
-    
     # Adiciona CSS para espaçamento dos links
     st.markdown("""
     <style>
