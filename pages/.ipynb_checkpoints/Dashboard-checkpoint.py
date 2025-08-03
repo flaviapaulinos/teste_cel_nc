@@ -87,7 +87,7 @@ if is_mobile_device:
         unsafe_allow_html=True
     )
 
-st.markdown('<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda. * Melhor visualizado em fundo claro. </div>',
+st.markdown('<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda.<br>*Melhor visualizado em fundo claro. </div>',
     unsafe_allow_html=True
 )
 
