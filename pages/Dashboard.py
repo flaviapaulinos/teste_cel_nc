@@ -72,6 +72,7 @@ powerbi_link += "&rs:embed=true"
 powerbi_link += "&rs:command=Render"
 powerbi_link += "&rs:device=desktop"
 powerbi_link += "&rs:SuppressErrorRedirect=true"
+powerbi_link += "&theme=light"  
 
 # Verifica se é dispositivo móvel
 is_mobile_device = is_mobile()

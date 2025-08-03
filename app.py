@@ -104,8 +104,8 @@ percentual_coleta_seletiva = {
 
 # Percentuais para coleta convencional (quando o usuário não recicla)
 percentual_coleta_convencional = {
-    'percentual_papel':  0.1529,
-    'percentual_plastico': 0.1439,
+    'percentual_papel':  0.153,
+    'percentual_plastico': 0.144,
     'percentual_metais': 0.0116,
     'percentual_vidro': 0.0292,
 }
