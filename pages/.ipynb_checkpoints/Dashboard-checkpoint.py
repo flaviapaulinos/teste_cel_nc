@@ -83,11 +83,11 @@ is_mobile_device = is_mobile()
 # Aviso para mobile
 if is_mobile_device:
     st.markdown(
-        '<div class="mobile-warning"> Para melhor experiência, gire seu dispositivo para o modo paisagem e use o modo claro.</div>',
+        '<div class="mobile-warning"> Para melhor experiência, gire seu dispositivo para o modo paisagem </div>',
         unsafe_allow_html=True
     )
 
-st.markdown('<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda.</div>',
+st.markdown('<div class="mobile-warning"> Você pode interagir com os gráficos, filtrar as informações por ano e material e navegar pelas páginas clicando nos ícones na barra lateral à esquerda. * Melhor visualizado em fundo claro. </div>',
     unsafe_allow_html=True
 )
 
