@@ -70,12 +70,6 @@ st.markdown("""
             margin: 5px;
         }
         
-        @media (prefers-color-scheme: dark) {
-            .info-box {
-                background-color: #2a2a2a;
-                color: #f0f0f0;
-            }
-        }
         
         /* Ajustes gerais para melhor contraste */
         body {
