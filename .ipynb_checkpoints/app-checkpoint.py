@@ -67,7 +67,7 @@ st.markdown("""
             color: #4b4b4b
             padding: 15px;
             border-radius: 5px;
-            margin-top: 5px;
+            margin: 5px;
         }
         
         @media (prefers-color-scheme: dark) {
