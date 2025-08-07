@@ -29,10 +29,6 @@ def show_header(show_calculadora=True):
     # Constrói a query string para manter o modo
     query_string = "?force_mobile=1" if "force_mobile" in params else ""
     
-def show_header(show_calculadora=True):
-    # Determina o modo atual
-    mobile_mode = is_mobile()
-    
     # Adiciona CSS para espaçamento dos links
     st.markdown("""
     <style>
@@ -93,10 +89,10 @@ def show_header(show_calculadora=True):
 
 def show_footer():
     # Mostra a imagem do rodapé
-    if is_mobile():
-        st.image("imagem/logos_mob_fundo.png", use_container_width=True)
-    else:
-        st.image("imagem/logos.png", use_container_width=True)
+    #if is_mobile():
+    #    st.image("imagem/logos_mob_fundo.png", use_container_width=True)
+    #else:
+    #    st.image("imagem/logos.png", use_container_width=True)
     
     st.markdown("---")
     
