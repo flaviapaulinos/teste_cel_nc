@@ -89,10 +89,10 @@ def show_header(show_calculadora=True):
 
 def show_footer():
     # Mostra a imagem do rodapé
-    #if is_mobile():
-    #    st.image("imagem/logos_mob_fundo.png", use_container_width=True)
-    #else:
-    #    st.image("imagem/logos.png", use_container_width=True)
+    if is_mobile():
+        st.image("imagem/logos_mob_fundo.png", use_container_width=True)
+    else:
+        st.image("imagem/logos.png", use_container_width=True)
     
     st.markdown("---")
     
